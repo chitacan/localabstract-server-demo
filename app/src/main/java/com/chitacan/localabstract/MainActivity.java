@@ -91,6 +91,18 @@ public class MainActivity extends Activity
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        startServer();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopServer();
+    }
+
+    @Override
     public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
         if (keyEvent.getAction() == keyEvent.ACTION_DOWN &&
             keyCode == keyEvent.KEYCODE_ENTER)
@@ -99,8 +111,10 @@ public class MainActivity extends Activity
     }
 
     private void startServer() {
-        if (mServer != null && mServer.isAlive())
+        if (mServer != null && mServer.isAlive()) {
+            mStatus.setText("server alive");
             return;
+        }
 
         mServer = new LocalSocketServer(mHandler);
         mServer.start();
