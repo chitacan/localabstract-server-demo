@@ -1,4 +1,4 @@
-package localabstract.chitacan.com.localabstract_server_demo;
+package com.chitacan.localabstract;
 
 import android.app.Activity;
 import android.net.LocalServerSocket;
@@ -19,6 +19,8 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+
+import com.chitacan.localabstract.R;
 
 
 public class MainActivity extends Activity
